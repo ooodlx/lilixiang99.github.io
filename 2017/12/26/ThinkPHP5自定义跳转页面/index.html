@@ -1,0 +1,1035 @@
+<!DOCTYPE html>    
+<html class="theme-next mist use-motion" lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+
+ <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0eeeae6f.js","daovoice")
+ daovoice('init', {
+  app_id: "6f62bd6e"
+});
+daovoice('update');
+ </script>
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ThinkPHP," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Strive ~" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="ThinkPHP样式简约的页面跳转">
+<meta name="keywords" content="ThinkPHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ThinkPHP5自定义跳转页面">
+<meta property="og:url" content="http://blog.biglx.cn/2017/12/26/ThinkPHP5自定义跳转页面/index.html">
+<meta property="og:site_name" content="Strive ~">
+<meta property="og:description" content="ThinkPHP样式简约的页面跳转">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.biglx.cn/old.png">
+<meta property="og:image" content="http://img.biglx.cn/20171226090501.png">
+<meta property="og:updated_time" content="2018-12-24T05:53:08.067Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ThinkPHP5自定义跳转页面">
+<meta name="twitter:description" content="ThinkPHP样式简约的页面跳转">
+<meta name="twitter:image" content="http://img.biglx.cn/old.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.biglx.cn/2017/12/26/ThinkPHP5自定义跳转页面/"/>
+
+
+
+
+
+
+
+  <title>ThinkPHP5自定义跳转页面 | Strive ~</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+     
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <!-- <a href="https://github.com/lilixiang99"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a> -->
+    <a href="https://github.com/lilixiang99" class="github-corner" aria-label="View source on Github">
+      <svg width="90" height="90" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <style>
+    .github-corner:hover .octo-arm {
+      animation: octocat-wave 560ms ease-in-out
+    }
+
+    @keyframes octocat-wave {
+      0%,
+      100% {
+        transform: rotate(0)
+      }
+      20%,
+      60% {
+        transform: rotate(-25deg)
+      }
+      40%,
+      80% {
+        transform: rotate(10deg)
+      }
+    }
+
+    @media (max-width:500px) {
+      .github-corner:hover .octo-arm {
+        animation: none
+      }
+      .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+      }
+    }
+
+    </style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Strive ~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal article" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.biglx.cn/2017/12/26/ThinkPHP5自定义跳转页面/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Strive">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Strive ~">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ThinkPHP5自定义跳转页面</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T08:53:49+08:00">
+                2017-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/26/ThinkPHP5自定义跳转页面/" class="leancloud_visitors" data-flag-title="ThinkPHP5自定义跳转页面">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-fire" aria-hidden="true"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center">ThinkPHP样式简约的页面跳转</blockquote>
+
+<a id="more"></a>
+<div class="note info"><p>摘自TP<a href="http://www.thinkphp.cn/code/3437.html" target="_blank" rel="external">官网</a>，做了一点小的优化，方便以后的TP核心框架升级 </p></div>
+<h2 id="先看效果图"><a href="#先看效果图" class="headerlink" title="先看效果图"></a>先看效果图</h2><p><strong>自带样式</strong></p>
+<p><img src="http://img.biglx.cn/old.png" alt=""></p>
+<p><strong>修改后的样式</strong></p>
+<p><img src="http://img.biglx.cn/20171226090501.png" alt=""></p>
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>　　增加对移动设备的支持，在common.php 加入以下函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 对移动端的支持</span><br><span class="line"> * @return bool</span><br><span class="line"> */</span><br><span class="line">function isMobile()</span><br><span class="line">&#123;</span><br><span class="line">    if (isset ($_SERVER[&apos;HTTP_X_WAP_PROFILE&apos;])) &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    if (isset ($_SERVER[&apos;HTTP_VIA&apos;])) &#123;</span><br><span class="line">        return stristr($_SERVER[&apos;HTTP_VIA&apos;], &quot;wap&quot;) ? true : false;</span><br><span class="line">    &#125;</span><br><span class="line">    if (isset ($_SERVER[&apos;HTTP_USER_AGENT&apos;])) &#123;</span><br><span class="line">        $clientkeywords = array(&apos;nokia&apos;,</span><br><span class="line">            &apos;sony&apos;,</span><br><span class="line">            &apos;ericsson&apos;,</span><br><span class="line">            &apos;mot&apos;,</span><br><span class="line">            &apos;samsung&apos;,</span><br><span class="line">            &apos;htc&apos;,</span><br><span class="line">            &apos;sgh&apos;,</span><br><span class="line">            &apos;lg&apos;,</span><br><span class="line">            &apos;sharp&apos;,</span><br><span class="line">            &apos;sie-&apos;,</span><br><span class="line">            &apos;philips&apos;,</span><br><span class="line">            &apos;panasonic&apos;,</span><br><span class="line">            &apos;alcatel&apos;,</span><br><span class="line">            &apos;lenovo&apos;,</span><br><span class="line">            &apos;iphone&apos;,</span><br><span class="line">            &apos;ipod&apos;,</span><br><span class="line">            &apos;blackberry&apos;,</span><br><span class="line">            &apos;meizu&apos;,</span><br><span class="line">            &apos;android&apos;,</span><br><span class="line">            &apos;netfront&apos;,</span><br><span class="line">            &apos;symbian&apos;,</span><br><span class="line">            &apos;ucweb&apos;,</span><br><span class="line">            &apos;windowsce&apos;,</span><br><span class="line">            &apos;palm&apos;,</span><br><span class="line">            &apos;operamini&apos;,</span><br><span class="line">            &apos;operamobi&apos;,</span><br><span class="line">            &apos;openwave&apos;,</span><br><span class="line">            &apos;nexusone&apos;,</span><br><span class="line">            &apos;cldc&apos;,</span><br><span class="line">            &apos;midp&apos;,</span><br><span class="line">            &apos;wap&apos;,</span><br><span class="line">            &apos;mobile&apos;</span><br><span class="line">        );</span><br><span class="line">        if (preg_match(&quot;/(&quot; . implode(&apos;|&apos;, $clientkeywords) . &quot;)/i&quot;, strtolower($_SERVER[&apos;HTTP_USER_AGENT&apos;]))) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (isset ($_SERVER[&apos;HTTP_ACCEPT&apos;])) &#123;</span><br><span class="line">        if ((strpos($_SERVER[&apos;HTTP_ACCEPT&apos;], &apos;vnd.wap.wml&apos;) !== false) &amp;&amp; (strpos($_SERVER[&apos;HTTP_ACCEPT&apos;], &apos;text/html&apos;) === false || (strpos($_SERVER[&apos;HTTP_ACCEPT&apos;], &apos;vnd.wap.wml&apos;) &lt; strpos($_SERVER[&apos;HTTP_ACCEPT&apos;], &apos;text/html&apos;)))) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>　　打开config.php，找到以下代码，并修改配置，如果仅对后台起作用，请在后台模块的配置文件直接修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//原配置</span><br><span class="line">&apos;dispatch_success_tmpl&apos; =&gt; THINK_PATH . &apos;tpl&apos; . DS . &apos;dispatch_jump.tpl&apos;,</span><br><span class="line">   &apos;dispatch_error_tmpl&apos; =&gt; THINK_PATH . &apos;tpl&apos; . DS . &apos;dispatch_jump.tpl&apos;,</span><br><span class="line">//新配置 修改配置，提示模板的路径，可自己配置想要的目录。</span><br><span class="line">&apos;dispatch_success_tmpl&apos; =&gt; APP_PATH . &apos;admin&apos;. DS . &apos;view&apos; . DS .&apos;include&apos; . DS .&apos;message.tpl&apos; ,</span><br><span class="line">&apos;dispatch_error_tmpl&apos; =&gt; APP_PATH . &apos;admin&apos;. DS . &apos;view&apos; . DS .&apos;include&apos; . DS .&apos;message.tpl&apos;,</span><br></pre></td></tr></table></figure>
+<p>　　在指定目录里的message.tpl中输入以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">&#123;__NOLAYOUT__&#125;&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span><br><span class="line">        &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span><br><span class="line">&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot;</span><br><span class="line">          content=&quot;width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes&quot;/&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;</span><br><span class="line">    &lt;title&gt;跳转提示&lt;/title&gt;</span><br><span class="line">    &lt;?php if(isMobile()==true)&#123;?&gt;</span><br><span class="line">    &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">    body, h1, h2, p,dl,dd,dt&#123;margin: 0;padding: 0;font: 15px/1.5 微软雅黑,tahoma,arial;&#125;</span><br><span class="line">    body&#123;background:#efefef;&#125;</span><br><span class="line">    h1, h2, h3, h4, h5, h6 &#123;font-size: 100%;cursor:default;&#125;</span><br><span class="line">    ul, ol &#123;list-style: none outside none;&#125;</span><br><span class="line">    a &#123;text-decoration: none;color:#447BC4&#125;</span><br><span class="line">    a:hover &#123;text-decoration: underline;&#125;</span><br><span class="line">    .ip-attack&#123;width:100%; margin:200px auto 0;&#125;</span><br><span class="line">    .ip-attack dl&#123; background:#fff; padding:30px; border-radius:10px;border: 1px solid #CDCDCD;-webkit-box-shadow: 0 0 8px #CDCDCD;-moz-box-shadow: 0 0 8px #cdcdcd;box-shadow: 0 0 8px #CDCDCD;&#125;</span><br><span class="line">        .ip-attack dt&#123;text-align:center;&#125;</span><br><span class="line">        .ip-attack dd&#123;font-size:16px; color:#333; text-align:center;&#125;</span><br><span class="line">        .tips&#123;text-align:center; font-size:14px; line-height:50px; color:#999;&#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;?php &#125;else&#123; ?&gt;</span><br><span class="line">    &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">        body, h1, h2, p, dl, dd, dt&#123;margin: 0;padding: 0;font: 15px/1.5 微软雅黑,tahoma,arial;&#125; body&#123;background:#efefef;&#125; h1, h2, h3, h4, h5, h6 &#123;font-size: 100%;cursor:default;&#125; ul, ol &#123;list-style: none outside none;&#125; a &#123;text-decoration: none;color:#447BC4&#125; a:hover &#123;text-decoration: underline;&#125; .ip-attack&#123;width:600px; margin:200px auto 0;&#125; .ip-attack dl &#123;</span><br><span class="line">            background: #fff;</span><br><span class="line">            padding: 30px;</span><br><span class="line">            border-radius: 10px;</span><br><span class="line">            border: 1px solid #CDCDCD;</span><br><span class="line">            -webkit-box-shadow: 0 0 8px #CDCDCD;</span><br><span class="line">            -moz-box-shadow: 0 0 8px #cdcdcd;</span><br><span class="line">            box-shadow: 0 0 8px #CDCDCD;</span><br><span class="line">        &#125;</span><br><span class="line">        .ip-attack dt&#123;text-align:center;&#125; .ip-attack dd&#123;font-size:16px; color:#333; text-align:center;&#125; .tips</span><br><span class="line"></span><br><span class="line">        &#123;text-align:center; font-size:14px; line-height:50px; color:#999;&#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;?php &#125;?&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;ip-attack&quot;&gt;</span><br><span class="line">    &lt;dl&gt;</span><br><span class="line">        &lt;?php switch ($code) &#123;?&gt;</span><br><span class="line">        &lt;?php case 1:?&gt;</span><br><span class="line">        &lt;dt style=&quot;color: green&quot;&gt;&lt;?php echo(strip_tags($msg));?&gt;&lt;/dt&gt;</span><br><span class="line">        &lt;?php break;?&gt;</span><br><span class="line">        &lt;?php case 0:?&gt;</span><br><span class="line">        &lt;dt style=&quot;color: red&quot;&gt;&lt;?php echo(strip_tags($msg));?&gt;&lt;/dt&gt;</span><br><span class="line">        &lt;?php break;?&gt;</span><br><span class="line">        &lt;?php &#125; ?&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line">        &lt;dt&gt;</span><br><span class="line">            页面自动 &lt;a id=&quot;href&quot; href=&quot;&lt;?php echo($url);?&gt;&quot;&gt;跳转&lt;/a&gt; 等待时间： &lt;b id=&quot;wait&quot;&gt;&lt;?php echo($wait);?&gt;&lt;/b&gt;</span><br><span class="line">        &lt;/dt&gt;</span><br><span class="line">    &lt;/dl&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    (function () &#123;</span><br><span class="line">        var wait = document.getElementById(&apos;wait&apos;),</span><br><span class="line">            href = document.getElementById(&apos;href&apos;).href;</span><br><span class="line">        var interval = setInterval(function () &#123;</span><br><span class="line">            var time = --wait.innerHTML;</span><br><span class="line">            if (time &lt;= 0) &#123;</span><br><span class="line">                location.href = href;</span><br><span class="line">                clearInterval(interval);</span><br><span class="line">            &#125;</span><br><span class="line">            ;</span><br><span class="line">        &#125;, 1000);</span><br><span class="line">    &#125;)();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>　　到此自定义跳转模板修改完成，除此以外大家有自己喜欢的模板也可以换上，操作是一样的~</p>
+
+      
+    </div>
+    
+    
+    
+      <div>
+            
+              
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2017/12/26/ThinkPHP5自定义跳转页面/">ThinkPHP5自定义跳转页面</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Strive 的个人博客">Strive</a></p>
+  <p><span>发布时间:</span>2017年12月26日 - 08:12</p>
+  <p><span>最后更新:</span>2018年12月24日 - 13:12</p>
+  <p><span>原始链接:</span><a href="/2017/12/26/ThinkPHP5自定义跳转页面/" title="ThinkPHP5自定义跳转页面">http://blog.biglx.cn/2017/12/26/ThinkPHP5自定义跳转页面/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://blog.biglx.cn/2017/12/26/ThinkPHP5自定义跳转页面/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+            
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ThinkPHP/" rel="tag"><i class="fa fa-tag"></i> ThinkPHP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/30/搭建lnmp-php7-1-nginx-mysql5-7/" rel="next" title="搭建lnmp(php7.1+nginx+mysql5.7)">
+                <i class="fa fa-chevron-left"></i> 搭建lnmp(php7.1+nginx+mysql5.7)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/24/Nginx配置SSL实现HTTPS访问/" rel="prev" title="Nginx配置SSL实现HTTPS访问">
+                Nginx配置SSL实现HTTPS访问 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+ 
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+         
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Strive" />
+          <p class="site-author-name" itemprop="name">Strive</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lilixiang99" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/liyzx" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.baidu.com" title="百度" target="_blank">百度</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com" title="GitHub" target="_blank">GitHub</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330px" height="86px" src="//music.163.com/outchain/player?type=2&id=16532462&auto=1&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#先看效果图"><span class="nav-number">1.</span> <span class="nav-text">先看效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步"><span class="nav-number">2.</span> <span class="nav-text">第一步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步"><span class="nav-number">3.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束"><span class="nav-number">4.</span> <span class="nav-text">结束</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+ 
+      </div>
+          
+    </main>
+
+    <footer id="footer" class="footer">
+
+      <div class="footer-inner" style="line-height: 2;">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Strive</span>
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>&nbsp;<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+</div>
+
+
+
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+ 
+ 
+      </div>
+    </footer>
+    
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i> 
+    </div>
+    
+  </div>
+  <canvas></canvas>
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+ 
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+ 
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+ 
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("WVui3sVj09guQ9rbAY3VHfK1-gzGzoHsz", "16pAEsxKOXLCBFH7LHFGfkUW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+ 
+ 
+ 
+ 
+ 
+
+  
+</body>
+
+</html>
+  <script>
+    document.addEventListener('touchmove', function (e) {
+        e.preventDefault()
+    })
+    var c = document.getElementsByTagName('canvas')[0],
+        x = c.getContext('2d'),
+        pr = window.devicePixelRatio || 1,
+        w = window.innerWidth,
+        h = window.innerHeight,
+        f = 90,
+        q,
+        m = Math,
+        r = 0,
+        u = m.PI*2,
+        v = m.cos,
+        z = m.random
+    c.width = w*pr
+    c.height = h*pr
+    x.scale(pr, pr)
+    x.globalAlpha = 0.6
+    function i(){
+        x.clearRect(0,0,w,h)
+        q=[{x:0,y:h*.7+f},{x:0,y:h*.7-f}]
+        while(q[1].x<w+f) d(q[0], q[1])
+    }
+    function d(i,j){   
+        x.beginPath()
+        x.moveTo(i.x, i.y)
+        x.lineTo(j.x, j.y)
+        var k = j.x + (z()*2-0.25)*f,
+            n = y(j.y)
+        x.lineTo(k, n)
+        x.closePath()
+        r-=u/-50
+        x.fillStyle = '#'+(v(r)*127+128<<16 | v(r+u/3)*127+128<<8 | v(r+u/3*2)*127+128).toString(16)
+        x.fill()
+        q[0] = q[1]
+        q[1] = {x:k,y:n}
+    }
+    function y(p){
+        var t = p + (z()*2-1.1)*f
+        return (t>h||t<0) ? y(p) : t
+    }
+    document.onclick = i
+    document.ontouchstart = i
+    i()
+</script>
+<script type="text/javascript" src="/js/src/love.js"></script>
